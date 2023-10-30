@@ -1,2 +1,44 @@
 Aggregation is a process in which one class defines another class as any entity reference. 
 It is another way to reuse the class. It is a form of association that represents HAS-A relationship.
+
+
+
+
+
+#include<iostream>
+using namespace std;
+class Address
+{
+    public:
+    string city;
+    string state;
+    Address(string city,string state)
+    {
+        this->city=city;
+        this->state=state;
+    }
+};
+class Engineer
+{
+   Address *address;
+   public:
+   string name;int id;
+   Engineer(string name,int id,Address *address)
+   {
+       this->name=name;
+       this->id=id;
+       this->address=address;
+   }
+   void display()
+   {
+       cout<<name<<" "<<id<<" "<<address->city<<" "<<address->state<<endl;
+   }
+   
+};
+int main ()
+{
+    Address a("Guntur","Andhrapradesh");
+    Engineer e("Sivakrishnateja",2770,&a);
+    e.display();
+  return 0;
+}
